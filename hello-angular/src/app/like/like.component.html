@@ -1,0 +1,5 @@
+<ng-content select=".body"></ng-content>
+<span class="glyphicon glyphicon-heart"
+      [class.active]="isActive"
+      (click)="likeClick()"></span>
+<span>{{ likesCount }}</span>

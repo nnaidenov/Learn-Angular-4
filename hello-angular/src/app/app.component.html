@@ -1,0 +1,29 @@
+<app-authors></app-authors>
+
+<br><hr><br>
+
+<app-courses></app-courses>
+
+<br><hr><br>
+
+<app-favorite [isFavorite]="post.isFavorite"
+              (change)="onFavoriteChanged($event)"></app-favorite>
+
+<br><hr><br>
+
+<app-like 
+          [likesCount]="tweet.likesCount"
+          [isActive]="tweet.isLiked">
+  <ng-container class="body">{{ tweet.body }}</ng-container>
+</app-like>
+
+<br><hr><br>
+
+<app-bootstrap-panel>
+  <ng-container class="heading">
+    <h1>Heading</h1>
+  </ng-container>
+  <ng-container class="body">
+    <h2>Body</h2>
+  </ng-container>
+</app-bootstrap-panel>

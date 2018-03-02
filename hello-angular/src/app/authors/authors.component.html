@@ -1,0 +1,17 @@
+<img [src]="imageUrl" />
+
+<table>
+    <tr>
+        <td [attr.colspan]="colSpan">
+            <button class="btn btn-primary" [class.active]="isActive" (click)="onSave($event)">Save</button>
+            <input type="text" (keyup.enter)="onKeyUp()" [(ngModel)]="email">
+        </td>
+    </tr>
+</table>
+
+<hr />
+
+<input type="text" [(ngModel)]="inputValue">
+<h1>
+    {{ inputValue | titleCaseFormatPipe }}
+</h1>
