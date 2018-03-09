@@ -11,6 +11,7 @@ import { TitleCaseFormatPipePipe } from './title-case-format-pipe.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 import { LikeComponent } from './like/like.component';
+import { SwitchComponent } from './switch/switch.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { LikeComponent } from './like/like.component';
     TitleCaseFormatPipePipe,
     FavoriteComponent,
     BootstrapPanelComponent,
-    LikeComponent
+    LikeComponent,
+    SwitchComponent
   ],
   imports: [
     BrowserModule,
