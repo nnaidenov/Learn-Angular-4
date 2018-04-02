@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-heading" (click)="toggleTab()">
+    <h1>{{ title }}</h1>
+    <span class="glyphicon"
+          [ngClass]="{
+            'glyphicon-chevron-up': isOpen,
+            'glyphicon-chevron-down': !isOpen
+          }">
+    </span>
+  </div>
+  <div *ngIf="isOpen">
+      <ng-content></ng-content>
+  </div>
+</div>

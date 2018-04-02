@@ -1,14 +1,20 @@
+<button (click)="loadCourses()">Load Courses</button>
+<button (click)="addCourse()">Add</button>
+
 <div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
 
 <ng-template #coursesList>
-    <div *ngFor="let course of courses; index as index">
+    <div *ngFor="let course of courses; index as index; trackBy: trackCourse">
         {{ index }} - 
         {{ course.title | uppercase }} <br />
+        {{ course.teacher?.name }} <br />
         {{ course.students | number }} <br />
         {{ course.rating | number:'2.2-2' }} <br />
         {{ course.price | currency:'AUD':true:'3.2-2' }} <br />
         {{ course.releaseDate | date:'longDate' }} <br />
-        {{ course.description | summary:25 }}]
+        {{ course.description | summary:25 }}]<br />
+        <button (click)="removeCourse(course)">Remove</button>
+        <button (click)="updateCourse(course)">Change</button>
         <hr>
     </div>
 </ng-template>

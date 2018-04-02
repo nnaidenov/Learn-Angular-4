@@ -12,6 +12,9 @@ import { FavoriteComponent } from './favorite/favorite.component';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 import { LikeComponent } from './like/like.component';
 import { SwitchComponent } from './switch/switch.component';
+import { InputFormatDirective } from './input-format.directive';
+import { ZippyComponent } from './zippy/zippy.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import { SwitchComponent } from './switch/switch.component';
     FavoriteComponent,
     BootstrapPanelComponent,
     LikeComponent,
-    SwitchComponent
+    SwitchComponent,
+    InputFormatDirective,
+    ZippyComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,

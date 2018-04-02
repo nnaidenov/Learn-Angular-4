@@ -1,0 +1,81 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+  <div ngModelGroup="contact">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input 
+          required 
+          minlength="3"
+          maxlength="10"
+          pattern="bannana"
+          ngModel
+          #firstName="ngModel"
+          name="firstName" 
+          id="firstName" 
+          type="text" 
+          class="form-control">
+        <div 
+            class="alert alert-danger" 
+            *ngIf="firstName.invalid && firstName.touched">
+          <div *ngIf="firstName.errors.required">
+            First Name is required!
+          </div>
+          <div *ngIf="firstName.errors.minlength">
+            First Name should be min {{ firstName.errors.minlength.requiredLength }} characters!
+          </div>
+          <div *ngIf="firstName.errors.pattern">
+            First Name should match the pattern!
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
+  </div>
+
+  <div class="checkbox">
+    <label>
+      <input 
+          ngModel
+          name="isSubscribed"
+          type="checkbox">Subscribe to mailing list
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label for="contactMethod"></label>
+    <select  
+        ngModel 
+        name="contactMethod" 
+        id="contactMethod" 
+        class="form-control">
+      <option></option>
+      <option 
+          *ngFor="let method of contactMethods"
+          [value]="method.id">{{ method.name }}</option>
+    </select>
+  </div>
+
+  <div
+      *ngFor="let sex of sexOptions" 
+      class="radio">
+    <label>
+      <input 
+          ngModel
+          [value]="sex.id"
+          type="radio" 
+          name="sex">
+      {{ sex.title }}
+    </label>
+  </div>
+
+  <p>
+    {{ f.value | json }}
+  </p>
+
+  <button 
+      [disabled]="f.invalid"
+      class="btn btn-primary">Submit</button>
+  
+</form>
