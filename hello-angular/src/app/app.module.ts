@@ -1,5 +1,10 @@
+import { GithubService } from './services/github.service';
+import { ErrorHandler } from '@angular/core';
+import { AppErrorHandler } from './common/app-error-handler';
+import { PostService } from './services/post.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -15,6 +20,8 @@ import { SwitchComponent } from './switch/switch.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ZippyComponent } from './zippy/zippy.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { PostsComponent } from './posts/posts.component';
+import { GithubFollowersComponent } from './github-followers/github-followers.component';
 
 
 @NgModule({
@@ -30,14 +37,23 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     SwitchComponent,
     InputFormatDirective,
     ZippyComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    PostsComponent,
+    GithubFollowersComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [
-    AuthorsService
+    AuthorsService,
+    PostService,
+    GithubService,
+    {
+      provide: ErrorHandler,
+      useClass: AppErrorHandler
+    }
   ],
   bootstrap: [AppComponent]
 })
