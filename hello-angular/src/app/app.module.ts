@@ -1,3 +1,6 @@
+import { GithubService } from './services/github.service';
+import { ErrorHandler } from '@angular/core';
+import { AppErrorHandler } from './common/app-error-handler';
 import { PostService } from './services/post.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -18,6 +21,7 @@ import { InputFormatDirective } from './input-format.directive';
 import { ZippyComponent } from './zippy/zippy.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { PostsComponent } from './posts/posts.component';
+import { GithubFollowersComponent } from './github-followers/github-followers.component';
 
 
 @NgModule({
@@ -34,7 +38,8 @@ import { PostsComponent } from './posts/posts.component';
     InputFormatDirective,
     ZippyComponent,
     ContactFormComponent,
-    PostsComponent
+    PostsComponent,
+    GithubFollowersComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,12 @@ import { PostsComponent } from './posts/posts.component';
   ],
   providers: [
     AuthorsService,
-    PostService
+    PostService,
+    GithubService,
+    {
+      provide: ErrorHandler,
+      useClass: AppErrorHandler
+    }
   ],
   bootstrap: [AppComponent]
 })
