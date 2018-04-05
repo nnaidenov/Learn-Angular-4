@@ -24,8 +24,18 @@ import { AppErrorHandler } from './common/app-error-handler';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
-      { path: 'followers', component: GithubFollowersComponent }
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'followers',
+        component: GithubFollowersComponent
+      },
+      {
+        path: 'profile/:username',
+        component: GithubProfileComponent
+      }
     ])
   ],
   providers: [
