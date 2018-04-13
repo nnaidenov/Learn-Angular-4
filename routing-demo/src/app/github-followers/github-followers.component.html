@@ -2,6 +2,6 @@
   <img class="mr-3 avatar" src="{{ follower.avatar_url }}" alt="Generic placeholder image">
   <div class="media-body">
     <h5 class="mt-0">{{ follower.login }}</h5>
-    <a href="{{ follower.html_url }}">{{ follower.html_url }}</a>
+    <a [routerLink]="['/followers', follower.id, follower.login]">{{ follower.html_url }}</a>
   </div>
 </div>

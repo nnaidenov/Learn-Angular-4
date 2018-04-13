@@ -12,6 +12,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { GithubFollowersComponent } from './github-followers/github-followers.component';
 import { GithubService } from './services/github.service';
 import { AppErrorHandler } from './common/app-error-handler';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PostsComponent } from './posts/posts.component';
+import { PostService } from './services/post.service';
 
 @NgModule({
   declarations: [
@@ -20,25 +23,37 @@ import { AppErrorHandler } from './common/app-error-handler';
     GithubProfileComponent,
     GithubFollowersComponent,
     NotFoundComponent,
+    NavbarComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot([
       {
         path: '',
         component: HomeComponent
       },
       {
+        path: 'followers/:id/:username',
+        component: GithubProfileComponent
+      },
+      {
         path: 'followers',
         component: GithubFollowersComponent
       },
       {
-        path: 'profile/:username',
-        component: GithubProfileComponent
+        path: 'posts',
+        component: PostsComponent
+      },
+      {
+        path: '**',
+        component: NotFoundComponent
       }
     ])
   ],
   providers: [
+    PostService,
     GithubService,
     { provide: ErrorHandler, useClass: AppErrorHandler }
   ],
